@@ -7,7 +7,8 @@ const token = getInput("token") || process.env.GH_PAT || process.env.GITHUB_TOKE
 export const run = async () => {
   if (!token) throw new Error("GitHub token not found");
   const octokit = getOctokit(token);
-  const releases = await octokit.repos.listReleases();
+  const [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
+  const releases = await octokit.repos.listReleases({ owner, repo });
   const lastVersion = releases.data[0].name;
 
   setOutput("package-version", `v${lastVersion}`);
