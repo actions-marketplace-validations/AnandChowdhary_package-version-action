@@ -1,25 +1,19 @@
-import { getInput, debug, setFailed, setOutput } from "@actions/core";
-import { getOctokit } from "@actions/github";
-
-const token =
-  getInput("token") || process.env.GH_PAT || process.env.GITHUB_TOKEN;
+import { setFailed, setOutput } from "@actions/core";
+import { readFile } from "fs/promises";
+import { join } from "path";
+import { execSync } from "child_process";
 
 export const run = async () => {
-  if (!token) throw new Error("GitHub token not found");
-  const octokit = getOctokit(token);
-
-  const ms: string = getInput("milliseconds");
-  debug(`Waiting ${ms} milliseconds ...`);
-
-  debug(new Date().toTimeString());
-  await wait(parseInt(ms, 10));
-  debug(new Date().toTimeString());
-
-  setOutput("time", new Date().toTimeString());
-};
-
-export const wait = (milliseconds: number) => {
-  return new Promise<void>((resolve) => setTimeout(() => resolve(), milliseconds));
+  const file = await readFile(join(".", "package.json"), "utf8");
+  const pkg: { name: string; version: string } = JSON.parse(file);
+  setOutput("package-version", `v${pkg.version}`);
+  setOutput(
+    "package-version-timestamp",
+    `v${pkg.version}-${Math.floor(new Date().getTime() / 1000)}`
+  );
+  const hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+  setOutput("short-hash", hash);
+  setOutput("package-version-short-hash", `v${pkg.version}-${hash}`);
 };
 
 run()
