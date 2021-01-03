@@ -1,20 +1,43 @@
-# 🎬 GitHub Actions Starter
+# 🔖 GitHub Actions Starter
 
-GitHub Actions starter for TypeScript with automated releases to `dist`, Semantic Release, and auto-PR merges.
+GitHub Action to get the `package.json` version and a SHA suffix for unique versions.
 
-[![Build CI](https://github.com/koj-co/action.ts/workflows/Build%20CI/badge.svg)](https://github.com/koj-co/action.ts/actions?query=workflow%3A%22Build+CI%22)
-[![Test CI](https://github.com/koj-co/action.ts/workflows/Test%20CI/badge.svg)](https://github.com/koj-co/action.ts/actions?query=workflow%3A%22Test+CI%22)
-[![Release CI](https://github.com/koj-co/action.ts/workflows/Release%20CI/badge.svg)](https://github.com/koj-co/action.ts/actions?query=workflow%3A%22Release+CI%22)
-[![Node CI](https://github.com/koj-co/action.ts/workflows/Node%20CI/badge.svg)](https://github.com/koj-co/action.ts/actions?query=workflow%3A%22Node+CI%22)
+[![Build CI](https://github.com/koj-co/package-version-action/workflows/Build%20CI/badge.svg)](https://github.com/koj-co/package-version-action/actions?query=workflow%3A%22Build+CI%22)
+[![Test CI](https://github.com/koj-co/package-version-action/workflows/Test%20CI/badge.svg)](https://github.com/koj-co/package-version-action/actions?query=workflow%3A%22Test+CI%22)
+[![Release CI](https://github.com/koj-co/package-version-action/workflows/Release%20CI/badge.svg)](https://github.com/koj-co/package-version-action/actions?query=workflow%3A%22Release+CI%22)
+[![Node CI](https://github.com/koj-co/package-version-action/workflows/Node%20CI/badge.svg)](https://github.com/koj-co/package-version-action/actions?query=workflow%3A%22Node+CI%22)
 
-## ⭐ Features
+## ⭐ Get started
 
-- Write source in TypeScript
-- Auto-publish compiled code to `dist/`
-- Semantic Release to GitHub and npm
-- Includes Actions Core and Octokit
+This Action returns a recommend image name. For example, if you want to publish a new Docker image:
 
-[**Create a repository using this template →**](https://github.com/koj-co/action.ts/generate)
+```yaml
+name: Docker CI
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    name: Deploy to Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get package version
+        id: package-version
+        uses: actions/cache@v2
+      - name: Build and push to Docker
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: username/anand:v${{ steps.package-version.outputs.package-version-short-hash }}
+```
+
+### Outputs
+
+| Output name                  | Example value      |
+| ---------------------------- | ------------------ |
+| `package-version`            | v2.23.1            |
+| `package-version-timestamp`  | v2.23.1-1609693587 |
+| `short-hash`                 | 1abc9c3            |
+| `package-version-short-hash` | v2.23.1-1abc9c3    |
 
 ## 📄 License
 
