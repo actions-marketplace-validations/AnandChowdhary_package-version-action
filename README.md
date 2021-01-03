@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Get package version
         id: package-version
-        uses: actions/cache@v2
+        uses: koj-co/package-version-action@v1.0.1
       - name: Build and push to Docker
         uses: docker/build-push-action@v2
         with:
