@@ -14,6 +14,7 @@ export const run = async () => {
   const hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
   setOutput("short-hash", hash);
   setOutput("package-version-short-hash", `v${pkg.version}-${hash}`);
+  setOutput("package-version-random", `v${pkg.version}-${Math.random().toString(32).replace("0.", "")}`);
 };
 
 run()
