@@ -1,6 +1,6 @@
 {
   "name": "package-version-action",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "GitHub Action to get the package.json version and a SHA suffix",
   "main": "dist/index.js",
   "scripts": {

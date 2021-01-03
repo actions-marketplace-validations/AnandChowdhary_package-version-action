@@ -1,3 +1,15 @@
+## v1.0.0 (2021-01-03)
+
+[📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.0.0) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.0.0) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.0.0.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.0.0.tar.gz))
+
+### ✨ New features
+
+- [`29d3133`](https://github.com/koj-co/package-version-action/commit/29d3133)  Add v1 with outputs
+
+### ♻️ Updates
+
+- [`f7688ce`](https://github.com/koj-co/package-version-action/commit/f7688ce)  Add package version with random string
+
 ## v1.0.5 (2020-12-09)
 
 [📝 Release notes](https://github.com/koj-co/action.ts/releases/tag/v1.0.5) · [💻 Compare](https://github.com/koj-co/action.ts/compare/v1.0.4...v1.0.5) · [🔖 Tag](https://github.com/koj-co/action.ts/tree/v1.0.5) · 🗄️ Archive ([zip](https://github.com/koj-co/action.ts/archive/v1.0.5.zip) · [tar.gz](https://github.com/koj-co/action.ts/archive/v1.0.5.tar.gz))
