@@ -125,13 +125,6 @@ module.exports = require("child_process");
 
 /***/ }),
 
-/***/ 225:
-/***/ (function(module) {
-
-module.exports = require("fs/promises");
-
-/***/ }),
-
 /***/ 429:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -140,11 +133,11 @@ module.exports = require("fs/promises");
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.run = void 0;
 const core_1 = __webpack_require__(470);
-const promises_1 = __webpack_require__(225);
+const fs_1 = __webpack_require__(747);
 const path_1 = __webpack_require__(622);
 const child_process_1 = __webpack_require__(129);
 const run = async () => {
-    const file = await promises_1.readFile(path_1.join(".", "package.json"), "utf8");
+    const file = fs_1.readFileSync(path_1.join(".", "package.json"), "utf8");
     const pkg = JSON.parse(file);
     core_1.setOutput("package-version", `v${pkg.version}`);
     core_1.setOutput("package-version-timestamp", `v${pkg.version}-${Math.floor(new Date().getTime() / 1000)}`);
