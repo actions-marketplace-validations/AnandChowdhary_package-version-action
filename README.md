@@ -1,4 +1,4 @@
-# 🔖 GitHub Actions Starter
+# 🔖 Package Version Action
 
 GitHub Action to get the `package.json` version and a SHA suffix for unique versions.
 
