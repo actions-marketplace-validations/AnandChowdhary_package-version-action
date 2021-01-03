@@ -1,3 +1,11 @@
+## v1.0.3 (2021-01-03)
+
+[📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.0.3) · [💻 Compare](https://github.com/koj-co/package-version-action/compare/v1.0.2...v1.0.3) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.0.3) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.0.3.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.0.3.tar.gz))
+
+### 🐛 Bug fixes
+
+- [`4f4258b`](https://github.com/koj-co/package-version-action/commit/4f4258b)  Use owner, repo from .env
+
 ## v1.0.2 (2021-01-03)
 
 [📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.0.2) · [💻 Compare](https://github.com/koj-co/package-version-action/compare/v1.0.1...v1.0.2) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.0.2) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.0.2.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.0.2.tar.gz))
