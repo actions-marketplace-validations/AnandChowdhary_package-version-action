@@ -151,6 +151,7 @@ const run = async () => {
     const hash = child_process_1.execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
     core_1.setOutput("short-hash", hash);
     core_1.setOutput("package-version-short-hash", `v${pkg.version}-${hash}`);
+    core_1.setOutput("package-version-random", `v${pkg.version}-${Math.random().toString(32).replace("0.", "")}`);
 };
 exports.run = run;
 exports.run()
