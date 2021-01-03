@@ -1,10 +1,10 @@
 import { setFailed, setOutput } from "@actions/core";
-import { readFile } from "fs/promises";
+import { readFileSync } from "fs";
 import { join } from "path";
 import { execSync } from "child_process";
 
 export const run = async () => {
-  const file = await readFile(join(".", "package.json"), "utf8");
+  const file = readFileSync(join(".", "package.json"), "utf8");
   const pkg: { name: string; version: string } = JSON.parse(file);
   setOutput("package-version", `v${pkg.version}`);
   setOutput(
