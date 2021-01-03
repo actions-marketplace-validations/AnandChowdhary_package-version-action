@@ -11,17 +11,17 @@ export const run = async () => {
   const releases = await octokit.repos.listReleases({ owner, repo });
   const lastVersion = releases.data[0].name;
 
-  setOutput("package-version", `v${lastVersion}`);
+  setOutput("package-version", lastVersion);
   setOutput(
     "package-version-timestamp",
-    `v${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`
+    `${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`
   );
   const hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
   setOutput("short-hash", hash);
-  setOutput("package-version-short-hash", `v${lastVersion}-${hash}`);
+  setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
   setOutput(
     "package-version-random",
-    `v${lastVersion}-${Math.random().toString(32).replace("0.", "")}`
+    `${lastVersion}-${Math.random().toString(32).replace("0.", "")}`
   );
 };
 
