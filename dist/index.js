@@ -1441,7 +1441,8 @@ const run = async () => {
     if (!token)
         throw new Error("GitHub token not found");
     const octokit = github_1.getOctokit(token);
-    const releases = await octokit.repos.listReleases();
+    const [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
+    const releases = await octokit.repos.listReleases({ owner, repo });
     const lastVersion = releases.data[0].name;
     core_1.setOutput("package-version", `v${lastVersion}`);
     core_1.setOutput("package-version-timestamp", `v${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`);
