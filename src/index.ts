@@ -1,20 +1,27 @@
-import { setFailed, setOutput } from "@actions/core";
-import { readFileSync } from "fs";
-import { join } from "path";
+import { getInput, debug, setFailed, setOutput } from "@actions/core";
+import { getOctokit } from "@actions/github";
+
+const token = getInput("token") || process.env.GH_PAT || process.env.GITHUB_TOKEN;
 import { execSync } from "child_process";
 
 export const run = async () => {
-  const file = readFileSync(join(".", "package.json"), "utf8");
-  const pkg: { name: string; version: string } = JSON.parse(file);
-  setOutput("package-version", `v${pkg.version}`);
+  if (!token) throw new Error("GitHub token not found");
+  const octokit = getOctokit(token);
+  const releases = await octokit.repos.listReleases();
+  const lastVersion = releases.data[0].name;
+
+  setOutput("package-version", `v${lastVersion}`);
   setOutput(
     "package-version-timestamp",
-    `v${pkg.version}-${Math.floor(new Date().getTime() / 1000)}`
+    `v${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`
   );
   const hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
   setOutput("short-hash", hash);
-  setOutput("package-version-short-hash", `v${pkg.version}-${hash}`);
-  setOutput("package-version-random", `v${pkg.version}-${Math.random().toString(32).replace("0.", "")}`);
+  setOutput("package-version-short-hash", `v${lastVersion}-${hash}`);
+  setOutput(
+    "package-version-random",
+    `v${lastVersion}-${Math.random().toString(32).replace("0.", "")}`
+  );
 };
 
 run()
