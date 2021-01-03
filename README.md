@@ -1,6 +1,6 @@
 # 🔖 Package Version Action
 
-GitHub Action to get the `package.json` version and a SHA suffix for unique versions.
+GitHub Action to get the latest release version and a SHA suffix for unique versions.
 
 [![Build CI](https://github.com/koj-co/package-version-action/workflows/Build%20CI/badge.svg)](https://github.com/koj-co/package-version-action/actions?query=workflow%3A%22Build+CI%22)
 [![Test CI](https://github.com/koj-co/package-version-action/workflows/Test%20CI/badge.svg)](https://github.com/koj-co/package-version-action/actions?query=workflow%3A%22Test+CI%22)
@@ -23,21 +23,25 @@ jobs:
       - name: Get package version
         id: package-version
         uses: koj-co/package-version-action@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push to Docker
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: username/anand:v${{ steps.package-version.outputs.package-version-short-hash }}
+          tags: username/anand:${{ steps.package-version.outputs.package-version }}
+          # ->  username/anand:v1.23.21
 ```
 
 ### Outputs
 
-| Output name                  | Example value      |
-| ---------------------------- | ------------------ |
-| `package-version`            | v2.23.1            |
-| `package-version-timestamp`  | v2.23.1-1609693587 |
-| `short-hash`                 | 1abc9c3            |
-| `package-version-short-hash` | v2.23.1-1abc9c3    |
+| Output name                  | Description              | Example value      |
+| ---------------------------- | ------------------------ | ------------------ |
+| `package-version`            | Latest release version   | v2.23.1            |
+| `package-version-timestamp`  | Version + unix timestamp | v2.23.1-1609693587 |
+| `short-hash`                 | Last commit hash         | 1abc9c3            |
+| `package-version-short-hash` | Version + commit hash    | v2.23.1-1abc9c3    |
+| `package-version-random`     | Version + random string  | v2.23.1-238a32ef21 |
 
 ## 📄 License
 

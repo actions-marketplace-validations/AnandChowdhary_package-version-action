@@ -1,8 +1,8 @@
-import { getInput, debug, setFailed, setOutput } from "@actions/core";
+import { getInput, setFailed, setOutput } from "@actions/core";
 import { getOctokit } from "@actions/github";
+import { execSync } from "child_process";
 
 const token = getInput("token") || process.env.GH_PAT || process.env.GITHUB_TOKEN;
-import { execSync } from "child_process";
 
 export const run = async () => {
   if (!token) throw new Error("GitHub token not found");
