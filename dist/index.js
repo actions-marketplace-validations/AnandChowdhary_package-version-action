@@ -1448,6 +1448,8 @@ const run = async () => {
     core_1.setOutput("package-version-timestamp", `${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`);
     const hash = child_process_1.execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
     core_1.setOutput("short-hash", hash);
+    core_1.setOutput("date-short-hash", `${new Date().toISOString().substr(0, 10)}-${hash}`);
+    core_1.setOutput("date-time-short-hash", `${new Date().toISOString()}-${hash}`);
     core_1.setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
     core_1.setOutput("package-version-random", `${lastVersion}-${Math.random().toString(32).replace("0.", "")}`);
 };
@@ -3421,6 +3423,7 @@ exports.getInput = getInput;
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function setOutput(name, value) {
+    process.stdout.write(os.EOL);
     command_1.issueCommand('set-output', { name }, value);
 }
 exports.setOutput = setOutput;
