@@ -18,6 +18,8 @@ export const run = async () => {
   );
   const hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
   setOutput("short-hash", hash);
+  setOutput("date-short-hash", `${new Date().toISOString().substr(0, 10)}-${hash}`);
+  setOutput("date-time-short-hash", `${new Date().toISOString()}-${hash}`);
   setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
   setOutput(
     "package-version-random",

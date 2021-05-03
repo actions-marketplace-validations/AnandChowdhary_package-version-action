@@ -35,13 +35,15 @@ jobs:
 
 ### Outputs
 
-| Output name                  | Description              | Example value      |
-| ---------------------------- | ------------------------ | ------------------ |
-| `package-version`            | Latest release version   | v2.23.1            |
-| `package-version-timestamp`  | Version + unix timestamp | v2.23.1-1609693587 |
-| `short-hash`                 | Last commit hash         | 1abc9c3            |
-| `package-version-short-hash` | Version + commit hash    | v2.23.1-1abc9c3    |
-| `package-version-random`     | Version + random string  | v2.23.1-238a32ef21 |
+| Output name                  | Description                | Example value                       |
+| ---------------------------- | -------------------------- | ----------------------------------- |
+| `package-version`            | Latest release version     | v2.23.1                             |
+| `package-version-timestamp`  | Version + unix timestamp   | v2.23.1-1609693587                  |
+| `short-hash`                 | Last commit hash           | 1abc9c3                             |
+| `package-version-short-hash` | Version + commit hash      | v2.23.1-1abc9c3                     |
+| `package-version-random`     | Version + random string    | v2.23.1-238a32ef21                  |
+| `date-hash`                  | Date + commit hash         | 2020-12-29-238a32ef21               |
+| `date-time-hash`             | ISO datetime + commit hash | 2020-12-29T09:35:34.759Z-238a32ef21 |
 
 ## 📄 License
 
