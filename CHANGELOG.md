@@ -1,3 +1,40 @@
+## v1.1.0 (2021-05-03)
+
+[📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.1.0) · [💻 Compare](https://github.com/koj-co/package-version-action/compare/v1.0.4...v1.1.0) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.1.0) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.1.0.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.1.0.tar.gz))
+
+### ✨ New features
+
+- [`2a8b5ec`](https://github.com/koj-co/package-version-action/commit/2a8b5ec)  Add date/hash outputs
+
+### ⬆️ Dependency updates
+
+- [`c55f7ca`](https://github.com/koj-co/package-version-action/commit/c55f7ca)  Bump @types/jest from 26.0.19 to 26.0.20
+- [`554a1ac`](https://github.com/koj-co/package-version-action/commit/554a1ac)  Bump semantic-release from 17.3.1 to 17.3.2
+- [`ff1581d`](https://github.com/koj-co/package-version-action/commit/ff1581d)  Bump semantic-release from 17.3.2 to 17.3.3
+- [`e39f6ee`](https://github.com/koj-co/package-version-action/commit/e39f6ee)  Bump semantic-release from 17.3.3 to 17.3.4
+- [`ded9b6b`](https://github.com/koj-co/package-version-action/commit/ded9b6b)  Bump semantic-release from 17.3.4 to 17.3.6
+- [`795d5fd`](https://github.com/koj-co/package-version-action/commit/795d5fd)  Bump semantic-release from 17.3.6 to 17.3.7
+- [`c5268e2`](https://github.com/koj-co/package-version-action/commit/c5268e2)  Bump ts-jest from 26.4.4 to 26.5.0
+- [`3e17a3e`](https://github.com/koj-co/package-version-action/commit/3e17a3e)  Bump semantic-release from 17.3.7 to 17.3.8
+- [`5583b71`](https://github.com/koj-co/package-version-action/commit/5583b71)  Bump ts-jest from 26.5.0 to 26.5.1
+- [`73a1e64`](https://github.com/koj-co/package-version-action/commit/73a1e64)  Bump typescript from 4.1.3 to 4.1.4
+- [`90672f0`](https://github.com/koj-co/package-version-action/commit/90672f0)  Bump typescript from 4.1.4 to 4.1.5
+- [`6d200c4`](https://github.com/koj-co/package-version-action/commit/6d200c4)  Bump vsoch/pull-request-action from 1.0.13 to 1.0.14
+- [`da57756`](https://github.com/koj-co/package-version-action/commit/da57756)  Bump pascalgn/automerge-action from v0.13.0 to v0.13.1
+- [`a027f5a`](https://github.com/koj-co/package-version-action/commit/a027f5a)  Bump semantic-release from 17.3.8 to 17.3.9
+- [`ce82471`](https://github.com/koj-co/package-version-action/commit/ce82471)  Bump vsoch/pull-request-action from 1.0.14 to 1.0.15
+- [`90c4953`](https://github.com/koj-co/package-version-action/commit/90c4953)  Bump stefanzweifel/git-auto-commit-action
+- [`87a53d4`](https://github.com/koj-co/package-version-action/commit/87a53d4)  Bump actions/setup-node from v2.1.4 to v2.1.5
+- [`43aa4fe`](https://github.com/koj-co/package-version-action/commit/43aa4fe)  Bump stefanzweifel/git-auto-commit-action
+- [`b2b872d`](https://github.com/koj-co/package-version-action/commit/b2b872d)  Bump typescript from 4.1.5 to 4.2.2
+- [`39805ae`](https://github.com/koj-co/package-version-action/commit/39805ae)  Bump ts-jest from 26.5.1 to 26.5.2
+- [`00f8637`](https://github.com/koj-co/package-version-action/commit/00f8637)  Bump semantic-release from 17.3.9 to 17.4.0
+- [`d46a74e`](https://github.com/koj-co/package-version-action/commit/d46a74e)  Bump ts-jest from 26.5.2 to 26.5.3
+- [`fe8ce79`](https://github.com/koj-co/package-version-action/commit/fe8ce79)  Bump semantic-release from 17.4.0 to 17.4.1
+- [`d2e49c5`](https://github.com/koj-co/package-version-action/commit/d2e49c5)  Bump stefanzweifel/git-auto-commit-action
+- [`08f787f`](https://github.com/koj-co/package-version-action/commit/08f787f)  Bump typescript from 4.2.2 to 4.2.3
+- [`49f2fd0`](https://github.com/koj-co/package-version-action/commit/49f2fd0)  Update all dependencies
+
 ## v1.0.4 (2021-01-03)
 
 [📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.0.4) · [💻 Compare](https://github.com/koj-co/package-version-action/compare/v1.0.3...v1.0.4) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.0.4) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.0.4.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.0.4.tar.gz))
