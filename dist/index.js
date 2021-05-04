@@ -1443,15 +1443,17 @@ const run = async () => {
     const octokit = github_1.getOctokit(token);
     const [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
     const releases = await octokit.repos.listReleases({ owner, repo });
-    const lastVersion = releases.data[0].name;
-    core_1.setOutput("package-version", lastVersion);
-    core_1.setOutput("package-version-timestamp", `${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`);
     const hash = child_process_1.execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+    if (releases.data.length) {
+        const lastVersion = releases.data[0].name;
+        core_1.setOutput("package-version", lastVersion);
+        core_1.setOutput("package-version-timestamp", `${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`);
+        core_1.setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
+        core_1.setOutput("package-version-random", `${lastVersion}-${Math.random().toString(32).replace("0.", "")}`);
+    }
     core_1.setOutput("short-hash", hash);
     core_1.setOutput("date-short-hash", `${new Date().toISOString().substr(0, 10)}-${hash}`);
     core_1.setOutput("date-time-short-hash", `${new Date().toISOString()}-${hash}`);
-    core_1.setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
-    core_1.setOutput("package-version-random", `${lastVersion}-${Math.random().toString(32).replace("0.", "")}`);
 };
 exports.run = run;
 exports.run()
