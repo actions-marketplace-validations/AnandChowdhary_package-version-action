@@ -9,22 +9,24 @@ export const run = async () => {
   const octokit = getOctokit(token);
   const [owner, repo] = (process.env.GITHUB_REPOSITORY || "").split("/");
   const releases = await octokit.repos.listReleases({ owner, repo });
-  const lastVersion = releases.data[0].name;
-
-  setOutput("package-version", lastVersion);
-  setOutput(
-    "package-version-timestamp",
-    `${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`
-  );
   const hash = execSync("git rev-parse --short HEAD", { encoding: "utf8" }).trim();
+
+  if (releases.data.length) {
+    const lastVersion = releases.data[0].name;
+    setOutput("package-version", lastVersion);
+    setOutput(
+      "package-version-timestamp",
+      `${lastVersion}-${Math.floor(new Date().getTime() / 1000)}`
+    );
+    setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
+    setOutput(
+      "package-version-random",
+      `${lastVersion}-${Math.random().toString(32).replace("0.", "")}`
+    );
+  }
   setOutput("short-hash", hash);
   setOutput("date-short-hash", `${new Date().toISOString().substr(0, 10)}-${hash}`);
   setOutput("date-time-short-hash", `${new Date().toISOString()}-${hash}`);
-  setOutput("package-version-short-hash", `${lastVersion}-${hash}`);
-  setOutput(
-    "package-version-random",
-    `${lastVersion}-${Math.random().toString(32).replace("0.", "")}`
-  );
 };
 
 run()
