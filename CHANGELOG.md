@@ -1,3 +1,11 @@
+## v1.1.1 (2021-05-04)
+
+[📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.1.1) · [💻 Compare](https://github.com/koj-co/package-version-action/compare/v1.1.0...v1.1.1) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.1.1) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.1.1.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.1.1.tar.gz))
+
+### 🐛 Bug fixes
+
+- [`2241767`](https://github.com/koj-co/package-version-action/commit/2241767)  Only add release info if found
+
 ## v1.1.0 (2021-05-03)
 
 [📝 Release notes](https://github.com/koj-co/package-version-action/releases/tag/v1.1.0) · [💻 Compare](https://github.com/koj-co/package-version-action/compare/v1.0.4...v1.1.0) · [🔖 Tag](https://github.com/koj-co/package-version-action/tree/v1.1.0) · 🗄️ Archive ([zip](https://github.com/koj-co/package-version-action/archive/v1.1.0.zip) · [tar.gz](https://github.com/koj-co/package-version-action/archive/v1.1.0.tar.gz))
